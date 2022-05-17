@@ -28,6 +28,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- Used for logging-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.36</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.2.11</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -97,6 +108,9 @@
                     <configuration>
                         <failOnWarning>true</failOnWarning>
                         <verbose>true</verbose>
+                        <ignoredUnusedDeclaredDependencies>
+                            <ignoredUnusedDeclaredDependency>ch.qos.logback:logback-classic</ignoredUnusedDeclaredDependency>
+                        </ignoredUnusedDeclaredDependencies>
                     </configuration>
                     <executions>
                         <execution>
