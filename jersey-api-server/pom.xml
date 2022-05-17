@@ -9,4 +9,16 @@
         <version>0.0.1</version>
     </parent>
     <artifactId>jersey-api-server</artifactId>
+
+    <dependencies>
+        <!-- Used for the backend webserver -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
+        </dependency>
+    </dependencies>
 </project>
