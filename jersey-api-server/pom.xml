@@ -9,17 +9,54 @@
         <version>0.0.1</version>
     </parent>
     <artifactId>jersey-api-server</artifactId>
-
+    
     <dependencies>
+        <!-- module dependencies -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jersey-api-rest</artifactId>
+        </dependency>
+        <!-- module dependencies -->
         <!-- Used for the backend webserver -->
+        <dependency>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-http</artifactId>
+            <artifactId>jetty-util</artifactId>
         </dependency>
+        <!-- Used for the backend webserver -->
+        <!-- for the rest api -->
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+        </dependency>
+        <!-- for the rest api -->
         <!-- Used for logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -29,5 +66,6 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency>
+        <!-- Used for logging -->
     </dependencies>
 </project>
