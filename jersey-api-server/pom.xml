@@ -11,6 +11,13 @@
     <artifactId>jersey-api-server</artifactId>
     
     <dependencies>
+        <!-- testing dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- testing dependencies -->
         <!-- module dependencies -->
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -18,6 +25,12 @@
         </dependency>
         <!-- module dependencies -->
         <!-- Used for the backend webserver -->
+        <!-- used for loading system configuration -->
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+        </dependency>
+        <!-- used for loading system configuration -->
         <dependency>
             <groupId>jakarta.activation</groupId>
             <artifactId>jakarta.activation-api</artifactId>

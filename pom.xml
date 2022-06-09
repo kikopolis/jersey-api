@@ -20,6 +20,14 @@
     
     <dependencyManagement>
         <dependencies>
+            <!-- testing dependencies -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>5.8.2</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- testing dependencies -->
             <!-- module dependencies -->
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -28,6 +36,11 @@
             </dependency>
             <!-- module dependencies -->
             <!-- rest api dependencies -->
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-common</artifactId>
+                <version>3.0.4</version>
+            </dependency>
             <dependency>
                 <groupId>jakarta.ws.rs</groupId>
                 <artifactId>jakarta.ws.rs-api</artifactId>
@@ -40,6 +53,13 @@
                 <version>3.16.0</version>
             </dependency>
             <!-- Used for the backend webserver -->
+            <!-- used for loading system configuration -->
+            <dependency>
+                <groupId>com.typesafe</groupId>
+                <artifactId>config</artifactId>
+                <version>1.4.2</version>
+            </dependency>
+            <!-- used for loading system configuration -->
             <dependency>
                 <groupId>org.glassfish.jersey.inject</groupId>
                 <artifactId>jersey-hk2</artifactId>
