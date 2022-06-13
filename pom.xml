@@ -20,6 +20,13 @@
     
     <dependencyManagement>
         <dependencies>
+            <!-- fixes jaxb warning from jersey in the rest api -->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>4.0.0</version>
+            </dependency>
+            <!-- fixes jaxb warning from jersey in the rest api -->
             <!-- testing dependencies -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -224,6 +231,9 @@
                             <ignoredUnusedDeclaredDependency>org.eclipse.jetty:jetty-annotations</ignoredUnusedDeclaredDependency>
                             <ignoredUnusedDeclaredDependency>jakarta.activation:jakarta.activation-api</ignoredUnusedDeclaredDependency>
                             <ignoredUnusedDeclaredDependency>org.glassfish.jersey.inject:jersey-hk2</ignoredUnusedDeclaredDependency>
+                            <ignoredUnusedDeclaredDependency>org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-jetty</ignoredUnusedDeclaredDependency>
+                            <ignoredUnusedDeclaredDependency>org.glassfish.jersey.test-framework:jersey-test-framework-core</ignoredUnusedDeclaredDependency>
+                            <ignoredUnusedDeclaredDependency>org.glassfish.jaxb:jaxb-runtime</ignoredUnusedDeclaredDependency>
                         </ignoredUnusedDeclaredDependencies>
                     </configuration>
                     <executions>
