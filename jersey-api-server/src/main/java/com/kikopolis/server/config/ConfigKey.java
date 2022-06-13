@@ -7,5 +7,4 @@ public enum ConfigKey  implements Key{
     SERVER_WEB_CONTENT,
     ROOT_CONTEXT,
     API_PATTERN;
-    
 }

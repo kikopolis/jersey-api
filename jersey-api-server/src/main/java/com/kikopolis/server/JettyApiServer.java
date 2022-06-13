@@ -18,9 +18,8 @@ import org.glassfish.jersey.servlet.ServletProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Optional;
 
 public class JettyApiServer {
@@ -30,15 +29,9 @@ public class JettyApiServer {
         int port = getServerPort();
         String mode = getServerMode();
         // Configuration file url
-        String configUrl = String.format("https://raw.githubusercontent.com/kikopolis/jersey-api/master/system-%s.properties", mode);
+        String configUrl = String.format("system-%s.properties", mode);
         Config config;
-        try {
-            config = ConfigFactory.parseURL(new URL(configUrl));
-            logger.info(config.getString(ConfigKey.API_PATTERN.getKey()));
-        } catch (MalformedURLException e) {
-            logger.error("Malformed url {}", configUrl);
-            throw e;
-        }
+        config = ConfigFactory.parseFile(new File(configUrl));
         Server server = createJettyServer(port, config);
         // Start the server or log the error thrown.
         try {
