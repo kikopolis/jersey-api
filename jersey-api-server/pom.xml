@@ -11,6 +11,16 @@
     <artifactId>jersey-api-server</artifactId>
     
     <dependencies>
+        <!-- module dependencies -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jersey-api-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jersey-api-model</artifactId>
+        </dependency>
+        <!-- module dependencies -->
         <!-- testing dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -18,12 +28,6 @@
             <scope>test</scope>
         </dependency>
         <!-- testing dependencies -->
-        <!-- module dependencies -->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>jersey-api-rest</artifactId>
-        </dependency>
-        <!-- module dependencies -->
         <!-- Used for the backend webserver -->
         <!-- used for loading system configuration -->
         <dependency>

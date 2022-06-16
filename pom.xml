@@ -16,10 +16,24 @@
     <modules>
         <module>jersey-api-rest</module>
         <module>jersey-api-server</module>
+        <module>jersey-api-model</module>
     </modules>
     
     <dependencyManagement>
         <dependencies>
+            <!-- module dependencies -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>jersey-api-rest</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>jersey-api-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- module dependencies -->
+            
             <!-- fixes jaxb warning from jersey in the rest api -->
             <dependency>
                 <groupId>org.glassfish.jaxb</groupId>
@@ -27,6 +41,7 @@
                 <version>4.0.0</version>
             </dependency>
             <!-- fixes jaxb warning from jersey in the rest api -->
+            
             <!-- testing dependencies -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -46,15 +61,8 @@
                 <version>2.2</version>
                 <scope>test</scope>
             </dependency>
-    
             <!-- testing dependencies -->
-            <!-- module dependencies -->
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>jersey-api-rest</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <!-- module dependencies -->
+            
             <!-- rest api dependencies -->
             <dependency>
                 <groupId>org.glassfish.jersey.core</groupId>
