@@ -1,5 +1,5 @@
 /.idea/
 /target/
 */target/
-/jersey-api-server/src/main/resources/certs/*
-!/jersey-api-server/src/main/resources/certs/generate-certs.sh
+/tutorialapi-server/src/main/resources/certs/*
+!/tutorialapi-server/src/main/resources/certs/generate-certs.sh
