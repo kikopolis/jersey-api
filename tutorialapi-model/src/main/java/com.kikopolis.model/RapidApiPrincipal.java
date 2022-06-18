@@ -14,21 +14,21 @@ public class RapidApiPrincipal implements Principal {
         this.proxySecret = proxySecret;
     }
     
-    public final String getUser() {
+    public String getUser() {
         return user;
     }
     
-    public final String getSubscription() {
+    public String getSubscription() {
         return subscription;
     }
     
-    public final String getProxySecret() {
+    public String getProxySecret() {
         return proxySecret;
     }
     
     @Override
-    public final String getName() {
-        return null;
+    public String getName() {
+        return user;
     }
     
     @Override

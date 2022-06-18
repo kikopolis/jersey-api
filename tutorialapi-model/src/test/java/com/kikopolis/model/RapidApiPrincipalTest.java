@@ -30,7 +30,7 @@ public class RapidApiPrincipalTest {
     @Test
     public final void test_get_name() {
         RapidApiPrincipal principal = getRapidApiPrincipal();
-        assertEquals(null, principal.getName());
+        assertEquals(user, principal.getName());
     }
     
     private RapidApiPrincipal getRapidApiPrincipal() {
