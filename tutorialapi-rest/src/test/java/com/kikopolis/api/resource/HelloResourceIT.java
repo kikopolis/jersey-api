@@ -1,6 +1,8 @@
 package com.kikopolis.api.resource;
 
 import com.kikopolis.api.ApiApplication;
+import com.kikopolis.api.security.header.CorsHeader;
+import com.kikopolis.api.security.header.CorsHeaderValue;
 import com.kikopolis.api.security.header.SecurityHeader;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.client.WebTarget;
@@ -65,12 +67,20 @@ public class HelloResourceIT extends JerseyTest {
     }
     
     @Test
-    public void test_hello_resource_with_all_security_headers() {
+    public void test_hello_resource() {
         WebTarget target = target("/test");
         Invocation.Builder request = target.request();
         request.headers(getHeaders(user, subscription, proxySecret));
         Response response = request.get();
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+        assertEquals(
+                CorsHeaderValue.ACCESS_CONTROL_ALLOW_ORIGIN.getValue(),
+                response.getHeaderString(CorsHeader.ACCESS_CONTROL_ALLOW_ORIGIN.getHeader())
+        );
+        assertEquals(
+                CorsHeaderValue.ACCESS_CONTROL_ALLOW_METHODS.getValue(),
+                response.getHeaderString(CorsHeader.ACCESS_CONTROL_ALLOW_METHODS.getHeader())
+        );
     }
     
     private MultivaluedMap<String, Object> getHeaders(String... requiredHeaders) {
