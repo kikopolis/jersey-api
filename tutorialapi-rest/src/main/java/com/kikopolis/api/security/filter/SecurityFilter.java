@@ -1,5 +1,7 @@
-package com.kikopolis.api.security;
+package com.kikopolis.api.security.filter;
 
+import com.kikopolis.api.security.RapidApiSecurityContext;
+import com.kikopolis.api.security.SecurityHeader;
 import com.kikopolis.model.RapidApiPrincipal;
 import com.kikopolis.model.Subscription;
 import jakarta.ws.rs.NotAuthorizedException;
@@ -20,7 +22,7 @@ public class SecurityFilter implements ContainerRequestFilter {
     private final List<String> errors = new ArrayList<>();
     
     @Override
-    public final void filter(ContainerRequestContext context) throws NotAuthorizedException {
+    public void filter(ContainerRequestContext context) throws NotAuthorizedException {
         Optional<String> proxySecret = getHeader(context, X_RAPID_API_PROXY_SECRET.getHeader());
         Optional<String> user = getHeader(context, X_RAPID_API_USER.getHeader());
         Optional<Subscription> subscription = getHeader(context, X_RAPID_API_SUBSCRIPTION.getHeader()).flatMap(Subscription::from);

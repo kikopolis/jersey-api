@@ -1,4 +1,4 @@
-package com.kikopolis.api.security;
+package com.kikopolis.api.security.filter;
 
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;

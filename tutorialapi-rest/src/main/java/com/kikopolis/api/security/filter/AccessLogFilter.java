@@ -1,5 +1,6 @@
-package com.kikopolis.api.security;
+package com.kikopolis.api.security.filter;
 
+import com.kikopolis.api.security.RapidApiSecurityContext;
 import com.kikopolis.model.RapidApiPrincipal;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
@@ -24,7 +25,7 @@ public class AccessLogFilter implements ContainerRequestFilter {
     }
     
     @Override
-    public final void filter(ContainerRequestContext containerRequestContext) {
+    public void filter(ContainerRequestContext containerRequestContext) {
         String user = getUserFromContext(containerRequestContext);
         String method = containerRequestContext.getMethod();
         String path = containerRequestContext.getUriInfo().getAbsolutePath().getPath();

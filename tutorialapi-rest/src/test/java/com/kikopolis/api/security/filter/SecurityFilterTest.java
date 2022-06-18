@@ -1,5 +1,7 @@
-package com.kikopolis.api.security;
+package com.kikopolis.api.security.filter;
 
+import com.kikopolis.api.security.SecurityHeader;
+import com.kikopolis.api.security.filter.SecurityFilter;
 import jakarta.ws.rs.NotAuthorizedException;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.core.MultivaluedHashMap;

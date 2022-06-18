@@ -1,5 +1,7 @@
-package com.kikopolis.api.security;
+package com.kikopolis.api.security.filter;
 
+import com.kikopolis.api.security.RapidApiSecurityContext;
+import com.kikopolis.api.security.filter.AccessLogFilter;
 import com.kikopolis.model.RapidApiPrincipal;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.core.UriInfo;
