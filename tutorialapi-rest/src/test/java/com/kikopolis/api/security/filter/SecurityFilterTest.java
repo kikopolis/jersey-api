@@ -1,7 +1,6 @@
 package com.kikopolis.api.security.filter;
 
-import com.kikopolis.api.security.SecurityHeader;
-import com.kikopolis.api.security.filter.SecurityFilter;
+import com.kikopolis.api.security.header.SecurityHeader;
 import jakarta.ws.rs.NotAuthorizedException;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.core.MultivaluedHashMap;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.kikopolis.api.security.SecurityHeader.*;
+import static com.kikopolis.api.security.header.SecurityHeader.*;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;

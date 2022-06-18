@@ -7,7 +7,7 @@ import jakarta.ws.rs.Produces;
 import static jakarta.ws.rs.core.MediaType.TEXT_PLAIN;
 
 @Path("/test")
-public class TestResource {
+public class HelloResource {
     @GET
     @Produces(TEXT_PLAIN)
     public String test() {
