@@ -1,6 +1,5 @@
 package com.kikopolis.api.security.filter;
 
-import com.kikopolis.api.security.filter.CorsFilter;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.core.MultivaluedHashMap;
 import jakarta.ws.rs.core.MultivaluedMap;
