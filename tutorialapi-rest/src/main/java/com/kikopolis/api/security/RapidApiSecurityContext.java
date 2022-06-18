@@ -16,22 +16,22 @@ public class RapidApiSecurityContext implements SecurityContext {
     }
     
     @Override
-    public final Principal getUserPrincipal() {
+    public Principal getUserPrincipal() {
         return principal;
     }
     
     @Override
-    public final boolean isUserInRole(String role) {
+    public boolean isUserInRole(String role) {
         return Objects.equals(principal.getSubscription(), Subscription.from(role).toString());
     }
     
     @Override
-    public final boolean isSecure() {
+    public boolean isSecure() {
         return true;
     }
     
     @Override
-    public final String getAuthenticationScheme() {
+    public String getAuthenticationScheme() {
         return authenticationScheme;
     }
 }

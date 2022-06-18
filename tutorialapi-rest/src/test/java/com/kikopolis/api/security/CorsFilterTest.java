@@ -1,37 +1,27 @@
 package com.kikopolis.api.security;
 
-import com.kikopolis.api.ApiApplication;
-import jakarta.ws.rs.client.Invocation;
-import jakarta.ws.rs.client.WebTarget;
-import jakarta.ws.rs.core.Application;
-import jakarta.ws.rs.core.Response;
-import org.glassfish.jersey.test.JerseyTest;
-import org.hamcrest.collection.IsMapContaining;
+import jakarta.ws.rs.container.ContainerResponseContext;
+import jakarta.ws.rs.core.MultivaluedHashMap;
+import jakarta.ws.rs.core.MultivaluedMap;
 import org.junit.jupiter.api.Test;
 
-import java.util.logging.LogManager;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-public class CorsFilterTest extends JerseyTest {
-    static {
-        // Disable logging from Java.util.logging in tests
-        LogManager.getLogManager().reset();
-    }
-    
-    @Override
-    protected final Application configure() {
-        return new ApiApplication();
-    }
-    
+public class CorsFilterTest {
     @Test
-    public final void cors_headers() {
-        WebTarget target = target("/test");
-        Invocation.Builder request = target.request();
-        Response response = request.get();
-        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
-        assertThat(response.getHeaders(), IsMapContaining.hasKey("Access-Control-Allow-Origin"));
-        assertThat(response.getHeaders(), IsMapContaining.hasKey("Access-Control-Allow-Methods"));
+    public final void test_filter() {
+        MultivaluedMap<String, Object> headers = new MultivaluedHashMap<>();
+        ContainerResponseContext context = mock(ContainerResponseContext.class);
+        when(context.getHeaders()).thenReturn(headers);
+        new CorsFilter().filter(null, context);
+        assertEquals(2, headers.size());
+        assertTrue(headers.containsKey("Access-Control-Allow-Origin"));
+        assertTrue(headers.containsKey("Access-Control-Allow-Methods"));
+        assertEquals("[*]", headers.get("Access-Control-Allow-Origin").toString());
+        assertEquals("[GET, POST, DELETE, PUT, OPTIONS, HEAD, PATCH]",
+                headers.get("Access-Control-Allow-Methods").toString());
     }
 }

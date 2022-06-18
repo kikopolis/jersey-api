@@ -5,6 +5,7 @@ import com.kikopolis.model.Subscription;
 import jakarta.ws.rs.NotAuthorizedException;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
+import jakarta.ws.rs.ext.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +14,7 @@ import java.util.stream.Stream;
 
 import static com.kikopolis.api.security.SecurityHeader.*;
 
+@Provider
 public class SecurityFilter implements ContainerRequestFilter {
     private static final Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
     private final List<String> errors = new ArrayList<>();
