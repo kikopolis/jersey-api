@@ -1,7 +1,7 @@
 package com.kikopolis.api.security.filter;
 
 import com.kikopolis.api.security.RapidApiSecurityContext;
-import com.kikopolis.api.security.SecurityHeader;
+import com.kikopolis.api.security.header.SecurityHeader;
 import com.kikopolis.model.RapidApiPrincipal;
 import com.kikopolis.model.Subscription;
 import jakarta.ws.rs.NotAuthorizedException;
@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 import java.util.stream.Stream;
 
-import static com.kikopolis.api.security.SecurityHeader.*;
+import static com.kikopolis.api.security.header.SecurityHeader.*;
 
 @Provider
 public class SecurityFilter implements ContainerRequestFilter {

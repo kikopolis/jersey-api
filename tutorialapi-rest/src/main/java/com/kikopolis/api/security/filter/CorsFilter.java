@@ -1,5 +1,6 @@
 package com.kikopolis.api.security.filter;
 
+import com.kikopolis.api.security.header.CorsHeader;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
@@ -11,7 +12,7 @@ public class CorsFilter implements ContainerResponseFilter {
     @Override
     public void filter(ContainerRequestContext containerRequestContext, ContainerResponseContext containerResponseContext) {
         MultivaluedMap<String, Object> headers = containerResponseContext.getHeaders();
-        headers.add("Access-Control-Allow-Origin", "*");
-        headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD, PATCH");
+        headers.add(CorsHeader.ACCESS_CONTROL_ALLOW_METHODS.getHeader(), "*");
+        headers.add(CorsHeader.ACCESS_CONTROL_ALLOW_ORIGIN.getHeader(), "GET, POST, DELETE, PUT, OPTIONS, HEAD, PATCH");
     }
 }

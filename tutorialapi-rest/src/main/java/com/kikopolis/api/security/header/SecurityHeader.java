@@ -1,4 +1,4 @@
-package com.kikopolis.api.security;
+package com.kikopolis.api.security.header;
 
 public enum SecurityHeader {
     X_RAPID_API_PROXY_SECRET("X-RapidAPI-Proxy-Secret"),
