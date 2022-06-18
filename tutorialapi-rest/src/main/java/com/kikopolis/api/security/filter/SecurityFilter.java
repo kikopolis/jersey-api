@@ -7,6 +7,7 @@ import com.kikopolis.model.Subscription;
 import jakarta.ws.rs.NotAuthorizedException;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
+import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +37,7 @@ public class SecurityFilter implements ContainerRequestFilter {
             addToErrorList(X_RAPID_API_SUBSCRIPTION);
         }
         if (!errors.isEmpty()) {
-            throw new NotAuthorizedException("Missing security headers: {}", errors);
+            throw new NotAuthorizedException(String.format("Missing security headers: %s", errors), Response.status(Response.Status.UNAUTHORIZED));
         }
         RapidApiPrincipal principal = new RapidApiPrincipal(proxySecret.get(), user.get(), subscription.get().toString());
         logger.info("User Principal: {}", principal);
